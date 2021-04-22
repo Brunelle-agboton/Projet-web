@@ -1,0 +1,7 @@
+{
+  "name": "AppBlank",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
