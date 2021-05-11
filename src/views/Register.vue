@@ -79,26 +79,28 @@
             },
             data: function () {
               return {
-                user : {
+                user: {
                   email:"",
-                  password:""
-                }
+                  password:"",
+                },
               };
             },
             methods: {
-               handleSubmit: function(ev : any) {
+               handleSubmit: function(ev: any) {
                   ev.preventDefault();
                   const {email, password } = this.user;
-                  if(email.length !== 0 || password.length !== 0){
-                    this.saveData(email.password);
+                  if(email.length !== 0 || password.length !== 0)
+                  {
+                    this.saveData( email, password);
                   }
-                  else{
-                    this.openToast('Veuillez !');
+                  else
+                  {
+                    this.openToast('Veuillez remplir les champs !');
                   }
               },
-              async openToast(){
+              async openToast(message : string){
                 const toast = await toastController.create({
-                  message:"";
+                  message:"Success",
                   duration:5000,
                 });
                 return toast.present();
