@@ -6,6 +6,8 @@
       </ion-toolbar>
     </ion-header>
     
+  
+      
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
@@ -14,37 +16,57 @@
       </ion-header>
     
       <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
+        <ion-tab-button tab="photos" href="/Home/Photos">
+            <ion-icon :icon="images" />
+            <ion-label>Photos</ion-label>
+          </ion-tab-button>
+          <ion-p> Salut</ion-p>
+       </div>
+       <ion-item-divider>
+      <ion-button router-link="/photos" >Photos </ion-button>
+    </ion-item-divider>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { images, square, triangle } from 'ionicons/icons';
+import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Home',
   components: {
+    IonButton,
     IonContent,
     IonHeader,
     IonPage,
     IonTitle,
-    IonToolbar
+    IonToolbar,
+    IonLabel
+  },
+  setup(){
+    const router = useRouter();
+
+    return {
+      router,
+      images,square,triangle
+    }
   }
 });
 </script>
 
 <style scoped>
 #container {
-  text-align: center;
+  /*text-align: center;*/
   
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
+  /*position: absolute;*/
+  width: 100%;
+  margin-left: 20%;
+  margin-right: 50%;
+  margin-top: 10%;
+  border: 2%  dashed  darkblue;
   transform: translateY(-50%);
 }
 
